@@ -1,0 +1,17 @@
+.urlSearchBox{
+  padding: 20px 50px;
+}
+
+.urlTextBox {
+  width: 300px;
+  margin-right: 20px;
+}
+
+div {
+  text-align: center;
+}
+
+#scale {
+  float: right;
+
+}

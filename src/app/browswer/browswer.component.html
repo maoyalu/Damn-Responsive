@@ -1,0 +1,18 @@
+<!-- <div [ngStyle]="{'height': height*scale + 'px', 'width': width*scale + 'px', 'display':'block'}"> -->
+<div [ngStyle]="{'height': height * scale  + 'px',
+                 'width': width * scale + 'px'}">
+  <h2>{{device}}</h2>
+  <iframe
+      [src]="browswerURL()"
+      title="PSNINE"
+      height="{{height}}"
+      width="{{width}}"
+      [ngStyle]="{'transform': 'scale(' + scale + ',' + scale + ')'}">
+  </iframe>
+</div>
+
+
+<!-- </div> -->
+
+
+<!-- [ngStyle]="{'transform': 'scale(0.5)'}" > -->

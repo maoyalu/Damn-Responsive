@@ -1,0 +1,34 @@
+<div class="urlSearchBox">
+  <mat-form-field id="scale">
+    <mat-label>Scale</mat-label>
+    <mat-select [(value)]="selectedScale">
+      <mat-option *ngFor="let scale of scales" value="{{scale}}">{{scale | percent}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <form [formGroup]="urlForm" (ngSubmit)="onSubmit(urlForm.value)">
+    <mat-form-field class="urlTextBox">
+      <mat-label>URL</mat-label>
+      <input matInput [formControl]="urlFormControl" [errorStateMatcher]="matcher" type="text" autocomplete="off"
+             placeholder="https:\\www.google.com" formControlName="url" [(ngModel)]="urlSearchBoxText">
+      <mat-error *ngIf="urlFormControl.hasError('url') && !urlFormControl.hasError('required')">
+        Please enter a valid URL
+      </mat-error>
+      <mat-error *ngIf="urlFormControl.hasError('required')">
+        URL is required
+      </mat-error>
+      <button mat-button *ngIf="urlSearchBoxText" matSuffix mat-icon-button aria-label="Clear" (click)="urlSearchBoxText=''">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
+    <button mat-raised-button>GO</button>
+  </form>
+
+</div>
+
+<div>
+  <button mat-raised-button *ngFor="let DEVICE of DEVICES" (click)="deviceButtonClicked(DEVICE)">{{DEVICE}}</button>
+</div>
+<div>
+  <app-browswer *ngFor="let device of devices" [device]="device" [url]="url" [scale]="selectedScale"></app-browswer>
+</div>
+
